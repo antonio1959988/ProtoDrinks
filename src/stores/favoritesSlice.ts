@@ -15,7 +15,7 @@ export const createFavoritesSlice: StateCreator<favoritesSliceType> = (set, get)
             // Existe, borrar
             set({
                 favorites: [...get().favorites].filter(fav => fav.idDrink !== recipe.idDrink),
-            })         
+            })        
         } else {
             // No existe, agregar
             set({

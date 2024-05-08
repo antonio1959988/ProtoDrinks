@@ -13,7 +13,7 @@ export default function Header() {
 
   const isHome = useMemo(() => pathname === '/' ,[pathname])
 
-  const {fetchCategories, categories, searchRecipes} = useAppStore()
+  const {fetchCategories, categories, searchRecipes, showNotification} = useAppStore()
 
   useEffect(() => {
     fetchCategories()
@@ -29,9 +29,9 @@ export default function Header() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    //TODO Validar 
+    // Validar 
     if(Object.values(searchFilters).includes('')){
-
+      showNotification({text: 'Todos los campos son obligatorios', error: true})
       return
     }
 
